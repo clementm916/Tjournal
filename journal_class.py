@@ -87,31 +87,34 @@ while True:
         continue
 
     
+    try:
+        if choice ==1:
 
-    if choice ==1:
+            name =str(raw_input("Enter Journal Name: "))
 
-        name =str(raw_input("Enter Journal Name: "))
+            journal=Journal(name)
 
-        journal=Journal(name)
+        elif choice==2:
 
-    elif choice==2:
+            journal.create_journal_entry()
 
-        journal.create_journal_entry()
+        elif choice == 3:
 
-    elif choice == 3:
+            journal.list_of_entries()
 
-        journal.list_of_entries()
+        elif choice ==4:
 
-    elif choice ==4:
+            journal.view_last()
 
-        journal.view_last()
+        elif choice ==0:
 
-    elif choice ==0:
+            break
 
-        break
+        else:
 
-    else:
+            print("Invalid choice!!! Choose from available options")
 
-        print("Invalid choice!!! Choose from available options")
-
+            continue
+    except(NameError):
+        print "You have to create a journal first"
         continue
